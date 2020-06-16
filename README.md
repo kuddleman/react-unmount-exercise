@@ -1,3 +1,7 @@
+We have successfully updated the state of a component on click of button and deleted the component by
+itself using unmount component lifecycle. 
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
