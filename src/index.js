@@ -1,17 +1,44 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import Content from './Content'
+//import App from './App';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+class Lifecycle extends React.Component {
+
+  constructor(props){
+    super(props)
+    this.state = {
+      data: 0
+    }
+    this.setNewValue = this.setNewValue.bind(this)
+  }
+
+  setNewValue() {
+    this.setState({ data: this.state.data + 1 })
+  }
+
+  render(){
+    return (
+      <div>
+        <button onClick={ this.setNewValue }>Keep Adding</button>
+        <Content Number={ this.state.data }></Content>
+      </div>
+      
+    )
+  }
+}
+
+ReactDOM.render(<Lifecycle />, document.getElementById('root'))
+
+setTimeout(() => {
+  ReactDOM.unmountComponentAtNode(document.getElementById('root'));}, 10000)
+
+
+
+
+
+    
+  
+  
+
